@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Project Title</title>
+  <title>SSC431 Interim Report</title>
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/themes/light.css" />
@@ -28,54 +28,108 @@
   <link rel="stylesheet" href="./components/scroll-to-top/scroll-to-top.css">
   <script src="./components/scroll-to-top/scroll-to-top.js"></script>
 
-  <script src="./components/table-component/table-component.js"></script>
-
   <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+  
+  <!-- MathJax for mathematical equations -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+  <script src="./components/table-component/table-component.js"></script>
 </head>
 
 <body>
   <div class="content">
-    <h1>Project Title</h1>
+    <image-component 
+    tag="image" 
+    source="assets/nuslogo.png"
+    subtitle=""
+  ></image-component>
+    <h1>CDE 4301 Interim Report</h1>
+    <h2>SSC431: Lumetrix </h2>
+    <h2>Physics-Informed Machine Learning</h2>
+    
+  <table-component subtitle="">
+  <div id="introduction-table"></div>
+  </table-component>
 
-    <!-- This is the team member component use to display details about your team members -->
-    <div class="team-member-wrapper">
-      <team-member avatar="assets/blackranger.png" name="Black" department="Mechanical Engineering"
-        year="1993"></team-member>
-      <team-member avatar="assets/yellowranger.png" name="Yellow" department="Computer Engineering"
-        year="1993"></team-member>
-      <team-member avatar="assets/redranger.png" name="Red" department="Electrical Engineering"
-        year="1993"></team-member>
-      <team-member avatar="assets/pinkranger.png" name="Pink" department="Biomedical Engineering"
-        year="1993"></team-member>
-      <team-member avatar="assets/blueranger.png" name="Blue" department="Chemical Engineering"
-        year="1993"></team-member>
-    </div>
 
-    <!-- This is a divide from the shoelace library for aesthetic purpose -->
     <sl-divider></sl-divider>
 
     <!-- This is the table-of-content component use to define all of the link directly to each section -->
     <div class="table-of-content">
       <h2>Table of Contents</h2>
       <sl-tree>
+        <sl-tree-item>
+          <a href="#acknowledgement">Acknowledgement</a>
+        </sl-tree-item>
+
+        <sl-tree-item>
+          <a href="#abstract">Abstract</a>
+        </sl-tree-item>
+
         <sl-tree-item expanded>
-          <a href="#section-header-1">1. Section Header 1</a>
+          <a href="#section1-introduction">Section 1: Introduction</a>
+        </sl-tree-item>
+
+        <sl-tree-item expanded>
+          <a href="#section2-scope-objective">Section 2: Scope and Objective</a>
+        </sl-tree-item>
+
+        <sl-tree-item expanded>
+          <a href="#section3-research-methodologies">Section 3: Research Methodologies</a>
           <sl-tree-item>
-            <a href="#sub-section-1-header-1">1.1. Sub-section Header 1</a>
+            <a href="#case-study-experimental-data">3.1: Case Study and Experimental Data Acquisition</a>
           </sl-tree-item>
           <sl-tree-item>
-            <a href="#sub-section-1-header-2">1.2. Sub-section Header 2</a>
+            <a href="#physics-integration">3.2: Physics Integration</a>
+          </sl-tree-item>
+          <sl-tree-item>
+            <a href="#model-initialization">3.3: Model Initialization</a>
+          </sl-tree-item>
+          <sl-tree-item>
+            <a href="#training">3.4: Training</a>
+          </sl-tree-item>
+          <sl-tree-item>
+            <a href="#performance-comparison-metrics">3.5: Performance Comparison Metrics</a>
+          </sl-tree-item>
+          <sl-tree-item>
+            <a href="#statistical-significance-test">3.6: Statistical Significance Test</a>
           </sl-tree-item>
         </sl-tree-item>
 
         <sl-tree-item expanded>
-          <a href="#section-header-2">2. Section Header 1</a>
+          <a href="#section4-results-discussions">Section 4: Results and Discussions</a>
           <sl-tree-item>
-            <a href="#sub-section-2-header-1">2.1. Sub-section Header 1</a>
+            <a href="#evaluation-model-performance">4.1: Evaluation of Model Performance</a>
           </sl-tree-item>
           <sl-tree-item>
-            <a href="#sub-section-2-header-2">2.2. Sub-section Header 2</a>
+            <a href="#empirical-parameter-performance">4.2: Empirical Parameter Performance</a>
           </sl-tree-item>
+          <sl-tree-item>
+            <a href="#effect-physics-weight-model-performance">4.3: Effect of Physics Weight on Model Performance</a>
+          </sl-tree-item>
+        </sl-tree-item>
+
+        <sl-tree-item expanded>
+          <a href="#section5-future-works">Section 5: Future Works</a>
+          <sl-tree-item>
+            <a href="#incorporation-physics-neural-network">5.1: Incorporation of Physics via Neural Network Architecture</a>
+          </sl-tree-item>
+          <sl-tree-item>
+            <a href="#assessment-physics-informed-ml-complex-case">5.2: Assessment of Physics-Informed Machine Learning of a Complex Case Study</a>
+          </sl-tree-item>
+        </sl-tree-item>
+
+        <sl-tree-item expanded>
+          <a href="#section6-conclusion">Section 6: Conclusion</a>
         </sl-tree-item>
 
         <sl-tree-item>
@@ -88,133 +142,701 @@
     <div>
 
       <!-- This is an example of what a section might look like -->
-      <div id="section-header-1">
-        <h2> 1. Section Header 1 </h2>
+      <div id="acknowledgement">
+        <h2> Acknowledgement </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna
-          aliqua. Tincidunt ornare massa eget egestas. At tellus at urna condimentum mattis pellentesque id nibh tortor.
-          Elementum sagittis vitae et leo duis ut diam. Morbi tristique senectus et netus et malesuada fames.
-          Suspendisse
-          ultrices gravida dictum fusce ut placerat orci. Risus nullam eget felis eget nunc lobortis mattis aliquam
-          faucibus
-          (Brody, 2007). Eget sit amet tellus cras adipiscing enim eu turpis egestas. Aliquet nibh praesent tristique
-          magna
-          sit amet purus. Adipiscing bibendum est ultricies integer quis auctor elit sed. Fermentum et sollicitudin ac
-          orci
-          phasellus egestas tellus rutrum. At in tellus integer feugiat scelerisque varius morbi enim nunc. Volutpat
-          blandit
-          aliquam etiam erat velit scelerisque in. Id diam maecenas ultricies mi eget mauris pharetra et. Nec dui nunc
-          mattis
-          enim ut tellus elementum sagittis vitae.
+ We extend our deepest gratitude to our project supervisors, Dr. Jovan Tan, Dr. Elliot Law and Associate Professor Samaveddham, Lakshminarayanan for their invaluable support, insightful feedback, and encouragement throughout the project. 
+We also wish to thank Mr Qin Zheng for his steadfast support in providing the essential laboratory resources and space for our experimental data.
+
         </p>
       </div>
+      <sl-divider></sl-divider>
 
-      <div id="sub-section-1-header-1">
-        <h3>1.1 Sub-section Header 1</h3>
+      <div id="abstract">
+        <h2>Abstract</h2>
         <p>
-          Ultrices dui sapien eget mi. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit. Dolor purus non enim
-          praesent elementum facilisis. Lacus vestibulum sed arcu non odio euismod lacinia at. Metus aliquam eleifend mi
-          in nulla. Lacus sed viverra tellus in hac habitasse platea. Varius quam quisque id diam vel quam elementum
-          pulvinar. Eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Diam ut venenatis tellus in metus
-          vulputate. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Venenatis lectus magna
-          fringilla
-          urna. In nisl nisi scelerisque eu ultrices. Velit egestas dui id ornare arcu odio ut sem nulla. Quam id leo in
-          vitae. Egestas congue quisque egestas diam in arcu cursus euismod quis. Porttitor leo a diam sollicitudin
-          tempor
-          id eu nisl.
+This study examines the capability of Physics-Informed Neural Network (PINN) to improve predictive accuracy and physical consistency in chemical-engineering applications relative to conventional Neural Networks (NN). The PINN framework embeds the physics governing equation directly into the loss function, a soft-constraint. Saponification of sodium hydroxide (NaOH) and ethyl acetate (EtAc) in a Plug-Flow Reactor (PFR) serves as the case study, with experimental data collected across uniformly varied operating conditions. Three models were trained: a baseline NN, PINN with fixed empirical parameters and lastly PINN-Discovery model with learnable parameters. PINN-Discovery demonstrated best performances (R² = 0.807, MSE = 1.190 × 10<sup>⁻¹¹</sup> and physics loss = 2.895 × 10⁻³). Statistical significance testing at the 95% confidence level substantiates that these improvements are not attributed to random variability. Collectively, these findings motivate future exploration of hard-constraint formulations and application to more complex chemical-engineering systems.
         </p>
       </div>
-
-      <div id="sub-section-1-header-2">
-        <h3>1.2 Sub-section Header 2</h3>
+      
+      <div id="section1-introduction">
+        <h2>Section 1: Introduction</h2>
         <p>
-          Fermentum dui faucibus in ornare quam viverra orci. Donec ultrices tincidunt arcu non sodales. A diam maecenas
-          sed enim ut sem viverra. Semper viverra nam libero justo laoreet sit. Mi sit amet mauris commodo quis. Auctor
-          augue mauris augue neque gravida in fermentum et. Auctor elit sed vulputate mi sit amet. Maecenas pharetra
-          convallis posuere morbi leo urna. Sem nulla pharetra diam sit amet nisl. Id nibh tortor id aliquet lectus.
-          Nibh
-          nisl condimentum id venenatis a condimentum vitae sapien. Convallis posuere morbi leo urna molestie at
-          elementum.
+          Chemical engineering lies at the intersection of chemistry, physics and engineering to design, 
+          optimise and scale processes that transform raw materials into valuable products <a href="#ref1">[1]</a>. As global 
+          demand intensifies, chemical manufacturers are compelled towards more efficient process routes, 
+          optimal operations control and design of flexible plants capable of maintaining optimal 
+          performance under changing conditions <a href="#ref2">[2]</a>.
+        </p>
+        <p>
+          As such, to support optimal-decision making, analytical models otherwise known as First 
+          Principle Modelling (FPM) are conventionally developed to help engineers understand and 
+          design chemical processes <a href="#ref3">[3]</a>. These models, for instance those that predict complex 
+          scenarios such as selectivity of reactions in a reactor or solving the Navier Stokes equation to 
+          understand motion of fluids <a href="#ref4">[4,</a><a href="#ref5">5]</a>. However, more often than not chemical engineering processes 
+          tend to be complex and sophisticated, are hence analytically intractable and demand substantial 
+          computational power and time to obtain approximated solutions. As a result, engineers resort to 
+          simplified models to describe reality; resulting in larger discrepancy between model's prediction 
+          and actual system behaviour <a href="#ref6">[6]</a>. Furthermore, unknown variables, idealised assumptions and 
+          boundary conditions in FPM models are hence major limitations, with reported deviation of an 
+          estimated 20-50% especially when empirical parameters are uncertain or operating conditions 
+          vary <a href="#ref7">[7,</a><a href="#ref8">8]</a>.
+        </p>
+        <p>
+          To address these challenges, Machine Learning (ML) emerges as a promising approach. It serves 
+          as surrogate models that can accurately predict patterns and correlations <a href="#ref9">[9]</a>, and hence has the 
+          potential to capture and learn complex non-linear system behaviour that are difficult to 
+          model analytically <a href="#ref6">[6]</a>. Unknown physics may also be accounted for in the training, allowing the 
+          model to implicitly capture unmodelled phenomena <a href="#ref10">[10]</a>. Despite these benefits, ML has not 
+          gained much traction in chemical engineering applications. This is largely because ML methods 
+          are inherently data-intensive, yet obtaining high-quality experimental data in chemical 
+          engineering is often costly and time-consuming <a href="#ref6">[6]</a>. Second, ML models are frequently criticised 
+          for their 'black-box' interpretability where they function as black boxes, thereby reducing trust and 
+          hindering their direct application in process design <a href="#ref3">[3]</a>. Lastly, given that ML models do not 
+          explicitly enforce physical laws, their predictions though precise, may not always be physically 
+          realisable, making it inaccurate <a href="#ref11">[11]</a>.
+        </p>
+        <p>
+With these identified strengths and weaknesses of both existing models, this gives rise to a new recent advancement, Physics Informed Machine Learning (PIML), which seeks to constrain the ML model to long-established physical laws. In particular, Physics-Informed Neural Networks (PINN) have emerged as a key approach in this domain, due to their relative ease in integrating physical principles within machine learning frameworks <a href="#ref12">[12]</a>. By unifying physics-based and data-driven approaches, PINN can deliver rapid, precise and accurate predictions that remain physically consistent while generalising beyond conventional assumptions and boundary conditions. Moreover, it is reported that PINN can reduce the amount of data required for training as demonstrated by Jian et al in their studies on flow simulations in buildings <a href="#ref13">[13]</a>
+        </p>
+        <p>
+          A key industrial application of PINN lies in process control for interconnected units in plants. A disturbance in upstream units can propagate downstream, pushing all subsequent units away from optimal operating conditions. Traditional feedforward control uses FPM or ML to predict the deviations more accurately in these subsequent units, which has many limitations as previously mentioned. By utilising PINN, it can potentially predict the deviations more accurately and make the appropriate preemptive measures to ensure that each process unit remains within its optimal operating window unlike current measures. Figure 1 illustrates the example below.
         </p>
 
-        <!-- This is an example of how you might use the image component -->
-        <image-component tag="image" source="assets/requirement.png"
-          subtitle="Image 1: iDP suggested pathway"></image-component>
+        <image-component tag="image" source="assets/PFD.png"
+          subtitle="Figure 1: Predictions in control systems of a process plant"></image-component>
       </div>
     </div>
-
-
-    <br />
-    <br />
+    <p>
+      Despite their promising capabilities, PINN is a relatively new field in chemical engineering applications that only gained traction last year, with a limited number of nine different case studies reported thus far. As such, PINN still faces several limitations that constrain their broader adoption in chemical engineering applications. First, reported results have been validated primarily on simulated data with additive Gaussian noise, which does not accurately reflect real-world conditions. Gaussian noise assumes independent, identically distributed and symmetric errors whereas actual measurement noises are correlated over time and space, systematic and biased <a href="#ref14">[14]</a>. Furthermore, existing research offers limited comparative analyses between PINN and plain Neural networks (NN). These papers fail to dive deeper into the reproducibility and underlying system dynamics of their results. Lastly, the empirical parameters impose strong sensitivity on the model's robustness <a href="#ref15">[15]</a>. This issue is particularly pronounced in chemical engineering where many parameters are empirically derived. As a result, these parameters often exhibit variability across different temperature, pressure and flow regimes, making it difficult to assign a single deterministic value. Such sensitivity has been demonstrated in fluid mechanics studies, where even minor perturbations of empirical constants from 1 to 40 led to deviations in mean squared error loss by up to two orders of magnitude as reported by Krishnapriyan et al <a href="#ref16">[16]</a>. An average of these values are hence typically taken for PINN which limits the accuracy significantly.
+    </p>
     <sl-divider></sl-divider>
     <div>
-      <div id="section-header-2">
-        <h2>2. Section Header 2</h2>
+      <div id="section2-scope-objective">
+        <h2>Section 2: Scope and Objective </h2>
         <p>
-          Ornare arcu dui vivamus arcu felis bibendum ut tristique et. Mi proin sed libero enim sed faucibus turpis in
-          eu. Odio ut sem nulla pharetra diam sit. Nibh cras pulvinar mattis nunc sed blandit libero. Lacus sed viverra
-          tellus in hac habitasse platea dictumst vestibulum. At augue eget arcu dictum varius duis. Mauris ultrices
-          eros in cursus turpis massa (Lindberg, 1967). Libero nunc consequat interdum varius sit amet mattis. Ut ornare
-          lectus sit amet est placerat in egestas erat. Elementum curabitur vitae nunc sed. Proin nibh nisl condimentum
-          id venenatis a condimentum vitae sapien (Chamberlin et al., 2008). Vitae tempus quam pellentesque nec nam
-          aliquam sem.
+          Accordingly, the scope of this study is guided by the central research question: 
         </p>
-      </div>
-
-      <div id="sub-section-2-header-1">
-        <h3>2.1. Sub-section Header 1</h3>
+        <p>        
+          <em>“Are Physics-Informed Neural Networks inherently more accurate and physically consistent than conventional Neural Networks, and under what conditions do these advantages manifest within chemical-engineering applications ? ”</em>
+        </p>
         <p>
-          Pellentesque nec nam aliquam sem et tortor consequat. Et netus et malesuada fames ac turpis egestas maecenas.
-          Eu tincidunt tortor aliquam nulla facilisi. Nunc aliquet bibendum enim facilisis gravida. Elementum pulvinar
-          etiam non quam lacus (Moll et al., 2011; Parker & Fox, 2010). Blandit cursus risus at ultrices mi. Arcu dui
-          vivamus arcu felis bibendum ut tristique. Porttitor rhoncus dolor purus non enim praesent elementum facilisis.
-          Mauris in aliquam sem fringilla. Non quam lacus suspendisse faucibus. Tristique senectus et netus et malesuada
-          fames ac. <a href="#image">Link to the image above</a>
+          To address this question, the study undertakes a structured comparison between NN and PINNs incorporating both soft and hard physical constraints. Soft constraints refer to the incorporation of physical laws into the neural network through penalty terms added to the loss function. Hard constraints enforce physical laws exactly by embedding them directly into the network architecture. To discover if the performances are inherent, this work explicitly assesses the statistical significance of performance gaps between the models, unlike much of the existing literature which typically reports raw performance metrics without evaluating whether observed differences are statistically meaningful. Model accuracy is quantified using conventional metrics (R2 and MSE), while physical consistency is evaluated through a physics-loss term detailed in Section 3. The metrics are applied to representative chemical-engineering processes, similarly detailed in Section 3. Figure 2 summarises the overall research workflow.
         </p>
-
-        <!-- This is an example of how you might use the video component -->
-        <video-component tag="rick" source="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          subtitle="Video: Never gonna give you up?"></video-component>
-      </div>
-
-      <div id="sub-section-2-header-2">
-        <h3>2.2. Sub-section Header 2</h3>
-        <p>
-          Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Dignissim convallis aenean et tortor at
-          risus viverra adipiscing. Facilisi nullam vehicula ipsum a arcu cursus. Adipiscing elit pellentesque
-          habitant
-          morbi tristique senectus et netus. Turpis massa tincidunt dui ut ornare lectus. Suspendisse sed nisi lacus
-          sed. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Ut ornare lectus sit amet est
-          placerat in egestas. Magna fringilla urna porttitor rhoncus. Imperdiet dui accumsan sit amet.
-        </p>
-
-        <!-- This is an example of how you might use the table component -->
-        <table-component subtitle="Table: Demo table">
-          <div id="table-1"></div>
-        </table-component>
+          <image-component tag="image" source="assets/phases.png"
+          subtitle="Figure 2: Project scope and phases"></image-component>
       </div>
     </div>
+    <sl-divider></sl-divider>
+    <div id="Section 3: Research Methodologies">
+        <h2>Section 3: Research Methodologies</h2>
+        <div id="case-study-experimental-data">
+        <h3>3.1: Case Study and Experimental Data Acquisition</h3>
+        <p>
+To demonstrate the applicability of the proposed methodology, the saponification of sodium hydroxide (NaOH) with ethyl acetate (EtAc) to form sodium acetate (NaAc) in a Plug-Flow Reactor (PFR) was selected as the representative case study. This case study is chosen because it is an established problem that has been studied and as such its prior studies would be able to provide known information and hence a reliable benchmark for evaluating the model performance. 
+        </p>
+        <image-component tag="image" source="assets/PFR.png"
+          subtitle="Figure 3: The experimental set-up"></image-component>
+        <p> 
+          The experiments were conducted in a 200 mL PFR by systematically varying the PFR temperature (0-50 °C), NaOH flow rate (30-120 ml min<sup>-1</sup> of 0.05 M) and ethyl acetate flow rate (30-120 ml min<sup>-1</sup> of 0.05 M) as per the restrictions of the experimental set-up displayed in Figure 3. Steady-state readings were verified through stable readings across a 15 minute period, after which indicate product samples were collected and analysed using an autotitrator. To further investigate the baseline effects, each set-up was actuated by repeating the same conditions following different past operating conditions. All resulting yields remained within a 5% deviation, hence assuming negligible hysteresis in the system. The detailed experimental procedure is found in Appendix A.
+        </p>
+        <p>
+          The multivariate 4 dimensional input variables are temperature of PFR, concentrations of NaOH and EtAc, and space time. The corresponding output variable was the yield of NaAc. A total of 50 datapoints with triplicates were sampled with Latin Hypercube Sampling (LHC). LHC is a stratified sampling method that partitions each of the d = 4 dimensions of the parameter space D<sub>p</sub> into N = 50 non-overlapping subsets, {D<sub>k,i</sub>}<sub>j∊ [1...50]</sub>, each with an equal probability of 1/N and hence enhances uniformity of sample coverage across the multidimensional domain <a href="#ref17">[17]</a>.
+        </p>
+        <p>
+          Uniform sampling across the full input space is justified through the governing second-order overall kinetics as displayed below.
+        </p>
+        <div style="text-align: center; margin: 20px 0;">
+          $$\frac{dC_A}{d\tau} = -k(T) \cdot C_A \cdot C_B$$
+        </div>
+        <div style="text-align: center; margin: 20px 0;">
+          $$k = A \cdot exp(\frac{-E_a}{RT})$$
+        </div>
+        <p>
+          where C<sub>A</sub> is the concentration of NaOH, C<sub>B</sub> is the concentration of EtAc, τ is the space time and k(T) is the temperature dependent rate constant following Arrhenius kinetics.
+        </p>
+        <p>
+          These equations show that the reaction rate is proportional to the temperature of the reactor as well as the concentrations of both reactants, thereby contributing non-linearly to the overall dynamics. Increase in temperature amplify the rate constant, k(T) exponentially, while increases in C<sub>A</sub> and C<sub>B</sub> proportionally accelerate the consumption of reactants. As such, each input variable influences the system behaviour over its entire range, not only near nominal operating conditions. So, sampling the full input domain uniformly ensures that the model is exposed to all relevant combinations of temperature and concentration. Moreover, this avoids biasing the model toward specific regions and captures the full spectrum of kinetic responses dictated by the governing equation.
+        </p>
+        <p>
+          Figure 4 illustrates the heatmap of sample distributions generated by LHC in comparison to simple random sampling (SRS).
+        </p>
+        <image-component tag="image" source="assets/LHC.png"
+          subtitle="Figure 4: Comparison of sample distributions between LHC and SRS"></image-component>
+        <p>
+          The input variables were normalised to the range of 0 to 1 to ensure consistent scaling and clearer visualisation of the sampling patterns within the hypercube. Pairwise input combinations were then examined using Gaussian Kernel Density estimation to provide a smooth and continuous representation of point density for clearer identification of clustering. Additionally, the centred discrepancy was computed to quantitatively assess the uniformity of point dispersion. As observed, the results indicated that SRS displayed more pronounced clustering, evident from the larger high-density regions in dark red. Meanwhile, LHC yields a more uniform distribution as displayed by the widely spaced orange regions with only one small localised dense region in Flow A and B comparison. This visual assessment aligns with the centred discrepancy values of 0.02494 for SRS and 0.000365 for LHC, substantiating the higher uniformity achieved by LHC. 
+        </p>
+        </div>
+        <div id="physics-integration">
+        <h3>3.2: Physics Integration</h3>
+        <p>
+          In this implementation, the PINN framework was implemented by incorporating the governing differential equation of the aforementioned case study directly into the loss function to be minimized. To reiterate, the governing differential equation follows a second-order overall kinetic.
+        </p>
+        <div style="text-align: center; margin: 20px 0;">
+          $$\frac{dC_A}{d\tau} = -k(T) \cdot C_A \cdot C_B$$
+        </div>
+        <div style="text-align: center; margin: 20px 0;">
+          $$k = A \cdot exp(\frac{-E_a}{RT})$$
+        </div>
+        <p>
+          Additionally, the parameters used to calculate the rate constant, k are A and Ea, which are the activation frequency and activation energy of the reaction respectively. These parameters are constant for a given temperature range and their values are calculated empirically, and hence vary due to experimental setup. Table 1 below shows a range of possible values for A and Ea based on literature.
+        </p>
+        
+        <table-component subtitle="Table 1: Empirical values of A and Ea based on literature reviews">
+          <div id="table-literature"></div>
+        </table-component>
 
-    <!-- This is an example of how you can use the references component to create references -->
-    <div id="references" class="references">
+        <p>
+          In this report, the values of Ea and A were calculated by rearranging the Arrhenius equation into a linear form D. However, given that the temperature of the PFR in the aforementioned case study is not constant across different experiments, an averaged value of Ea and A is required. Table 2 below shows the values of Ea and A to calculate the empirical parameter k for all PINN models henceforth unless specified otherwise.
+        </p>
+
+        <table-component subtitle="Table 2: Averaged values of A and Ea">
+          <div id="table-averaged"></div>
+        </table-component>
+
+        <p>
+          Subsequently, the governing equation is then converted into a "physics" residual loss term by computing the mean-squared error between the differential calculated by the model, through backpropagation, and the differential calculated by the training data. The physics loss is defined as:
+        </p>
+        <div style="text-align: center; margin: 20px 0;">
+          $$L_{phys} = \frac{1}{N} \sum_{i=1}^{N} \left( \frac{d\hat{C}_A}{d\tau} - (- k(T) \cdot C_A \cdot C_B) \right)^2$$
+        </div>
+        <p>
+          where $\hat{C}_A$ denotes the concentration of NaOH as predicted by the neural network and N is the number of training samples.
+        </p>
+        <p>
+          The total loss function combines the mean-squared error obtained through the actual training and the model's prediction with the physics loss:
+        </p>
+        <div style="text-align: center; margin: 20px 0;">
+          $$L_{data} = \frac{1}{n} \sum_{i=1}^{n} (C_{A_i} - \hat{C}_{A_i})^2$$
+        </div>
+        <div style="text-align: center; margin: 20px 0;">
+          $$L_{total} = L_{data} + \lambda \cdot L_{phys}$$
+        </div>
+        <p>
+          where λ is a hyperparameter that controls the extent to which the model minimizes the physics loss term.
+        </p>
+        </div>
+        <div id="model-initialization">
+        <h3>3.3: Model Initialization</h3>
+        <p>
+          The models in this report are developed using the PyTorch Python package presented in <a href="#ref21">[21]</a>. The architecture is fixed across the models, utilizing a fully connected feed-forward structure. The inputs and outputs of the model used is shown in Figure 5, a sketch of the neural network architecture. Table 3 below summarizes the specification of the model.
+        </p>
+        <image-component tag="image" source="assets/MLarc.png"
+          subtitle="Figure 5: Neural Network Architecture"></image-component>
+        
+        <table-component subtitle="Table 3: Specification of the architecture">
+          <div id="table-architecture"></div>
+        </table-component>
+
+        <p>
+          Utilizing the aforementioned architecture, 3 neural network models have been developed, namely: Neural Network (NN), Physics-Informed Neural Network (PINN) and finally PINN-Discovery.
+        </p>
+        <p>
+          The NN model is the base neural network without the addition of any physics terms. Subsequently, both PINN and PINN-Discovery incorporate a physics loss term into the loss function as outlined in the previous section. However, the difference between PINN and PINN-Discovery is that PINN-Discovery has the empirical parameter, Ea and A, are learnable parameters that are updated during training while for PINN, Ea and A are initialized with a fixed value. Table 4 shows an overview of the key features of each of the models.
+        </p>
+
+        <table-component subtitle="Table 4: Key Features of NN, PINN and PINN-Discovery">
+          <div id="table-features"></div>
+        </table-component>
+        </div>
+
+        <div id="training">
+        <h3>3.4: Training</h3>
+        <p>
+          Subsequently, to ensure fair assessment, all the models were trained using Adam optimizer with a standard learning rate and maximum epochs of 10<sup>-2</sup> and 1000 respectively. To prevent overfitting, early stopping was implemented based on validation loss, where the model state with the lowest validation loss was retained as the final model for each training run.
+        </p>
+        <p>
+          Given the limited number of datapoints, K-fold cross validation is used to divide the dataset into 5 folds, leaving 1 fold out for testing. Subsequently, 20% of the training data is reserved as a validation set to allow for early stopping. All models were trained and initialized 100 times, with each run having a unique random seed to control the shuffling of data and weight initialization. Figure 6 summarizes the flowchart of the process below.
+        </p>
+
+        <image-component tag="image" source="assets/flowchart.png"
+          subtitle="Figure 6: Flowchart of the training of the models"></image-component>
+        </div>
+
+        <div id="performance-comparison-metrics">
+        <h3>3.5: Performance Comparison Metrics</h3>
+        <p>
+          A comprehensive evaluation of model performance was conducted using three complementary metrics, namely coefficient of determination (R<sup>2</sup>), mean squared error (MSE) and physics loss.
+        </p>
+        <p>
+          R<sup>2</sup> assesses how well a model captures the variability present in the observed data relative to its overall variance. It is defined as such:
+        </p>
+        <div style="text-align: center; margin: 20px 0;">
+          $$R^2 = 1 - \frac{\sum(y_i - \hat{y}_i)^2}{\sum(y_i - \bar{y})^2}$$
+        </div>
+        <p>
+          where
+        </p>
+        <p>
+          y<sub>i</sub>: true value, ŷ<sub>i</sub>: predicted value, ȳ: true value mean, SS<sub>res</sub> = Σ(y<sub>i</sub> - ŷ<sub>i</sub>)<sup>2</sup> : unexplained variance
+        </p>
+        <p>
+          SS<sub>tot</sub> = Σ(y<sub>i</sub> - ȳ)<sup>2</sup> : total variance of the data
+        </p>
+        <p>
+          In essence, a high R<sup>2</sup> indicates the ability to capture underlying relationships between input-output variables. However, R<sup>2</sup> alone is not sufficient to fully characterise model performance, as it reflects only the proportion of variance explained and not the absolute magnitude of prediction errors. A model can achieve a high R<sup>2</sup> but still produce large deviations in individual predictions. This occurs when the underlying dataset exhibits substantial total variance, such that the proportion of unexplained variance remains small relative to the total, even though the residual errors themselves are numerically large. As such, additional performance such as MSE is required to quantify the prediction accuracy of the models.
+        </p>
+        <p>
+          Together, these metrics, such as low MSE coupled with a high R<sup>2</sup> value, indicate that the trend captured is consistent with the observed data and hence suggests the model's ability to capture actual physical relationships governing the data. However, if the underlying dataset contains significant noise, these metrics may become unreliable, as the model could achieve artificially high performance by fitting to noise rather than learning the true physical behaviour.
+        </p>
+        <p>
+          As such, the last performance metric, physics loss (as defined in Section 3.2), quantifies how well the model satisfies the governing physical laws of the system. This metric demonstrates that the model's predictions are not only statistically accurate but also physically consistent, thereby affirming the model's capability to capture the underlying physical relationships governing the system.
+        </p>
+        </div>
+        <div id="statistical-significance-test">
+        <h3>3.6: Statistical Significance Test</h3>
+        <p>
+          Statistical significance testing was conducted to ascertain whether the observed performance differences among the models are statistically meaningful, thereby distinguishing true performance from stochastic variability. The three models, NN, PINN and PINN-Discovery were each trained across 100 fixed, randomly generated seeds. With this, in accordance with the Central Limit Theorem (CLT) <a href="#ref22">[22]</a>, as the number of independent experimental runs increases beyond 30 samples, the sampling distribution of the sample mean asymptotically approaches normality, irrespective of the underlying population distribution. This property hence permits the assumption of approximate normality for aggregated performance estimates, thereby justifying the use of parametric inference procedures such as the t-test for model performance evaluation.
+        </p>
+        <p>
+          The t-test assesses whether the sample means of the two models of interest differ significantly under the assumption of normality <a href="#ref23">[23]</a>. For the purpose of this study, the comparisons are made between NN and PINN, PINN and PINN-Discovery, and lastly NN and PINN-Discovery.
+        </p>
+        <div style="text-align: center; margin: 20px 0;">
+          $$t\text{-test, } t = \frac{x_1 - \mu_0}{\left(\frac{s_x}{\sqrt{n}}\right)}$$
+        </div>
+        <p>
+          where
+        </p>
+        <p>
+          x̄<sub>1</sub>: Mean of the sample, μ<sub>0</sub>: Expected mean, s<sub>x</sub>: Standard deviation, n: Number of observations
+        </p>
+        <p>
+          <strong>Null Hypothesis, H0:</strong> There is no statistically significant difference between the performance metric Q of the two models.
+        </p>
+        <p>
+          <strong>Alternative Hypothesis, H1:</strong> There is a statistically significant difference between the performance metric Q of the two models.
+        </p>
+        <p>
+          where
+        </p>
+        <p>
+          Q represents the chosen performance indicator, R2, MSE or Physics Loss
+        </p>
+        <p>
+          The hypotheses were evaluated at a 95% confidence level (α = 0.05), whereby results with p < 0.05 indicate statistically significant difference and hence rejecting the null hypothesis.
+        </p>
+        </div>
+    </div>
+    <sl-divider></sl-divider>
+
+  <div id="Section 4: Results and Discussions">
+  <h2>Section 4: Results and Discussions</h2>
+      <div id="evaluation-model-performance">
+        <h3>4.1: Evaluation of Model Performance</h3>
+        <p>
+          The results of the three developed models, NN, PINN and PINN-Discovery are presented in Table 5 and Figure 7. Their performance was evaluated through the aforementioned performance metrics R<sup>2</sup>, MSE and Physics Loss.
+        </p>
+
+        <table-component subtitle="Table 5: Performance across NN, PINN and PINN-Discovery">
+          <div id="table-performance"></div>
+        </table-component>
+
+         <image-component tag="image" source="assets/test_r2_overall.png"
+          subtitle=""></image-component>
+           <image-component tag="image" source="assets/test_mse_overall.png"
+          subtitle=""></image-component>
+        <image-component tag="image" source="assets/physics_loss_final_mean.png"
+          subtitle="Figure 7: Notched-box plot across NN, PINN and PINN-Discovery for R², MSE, Physics Loss"></image-component>
+
+        <p>
+          The baseline NN model achieved a R<sup>2</sup> of 0.755, suggesting a modest level of predictive ability given the limited and noisy nature of the dataset. Correspondingly, a low MSE value suggests that the NN effectively captures the general data trends and reproduces the experimental observations with quantitatively consistent accuracy across the dataset. This outcome is expected given the NN's primary loss function. However, because the NN does not incorporate any physical constraints, it exhibits higher physics loss of 9.637 × 10<sup>-3</sup>, revealing the model's limited adherence to the governing physical laws. Hence, while NN reproduces observed trends, these predictions may not necessarily correspond to the true physical phenomena and may instead reflect the trends produced by experimental noise.
+        </p>
+        <p>
+          As such, the PINN model was anticipated to elicit an improvement in the physical consistency. However, the results revealed a contrary trend. In principle, the addition of the physics-based residual term should introduce a form of regularisation, where the model sacrifices slight statistical accuracy. This is synonymous with the predicted R<sup>2</sup> value of 0.738 and a marginal increase in the MSE value. Such outcomes could suggest that the model is avoiding overfitting to experimental noise and instead aligning more closely with the underlying physical relationships. However, the physics loss did not support this hypothesis, it recorded a significant increase to a physics loss of 2.312 × 10<sup>-2</sup>, 200% increase from NN. Hence, this suggests that the lower predictive performance arises not from an effective trade-off between data-fidelity and physical coherence, but rather from the model's increased adherence to experimental noise.
+        </p>
+        <p>
+          Meanwhile, the PINN-Discovery model reported the best R<sup>2</sup> value of 0.807 and the lowest MSE reported at 1.190 × 10<sup>-11</sup>. Additionally, PINN-Discovery's Physics Loss is reported to be the lowest at 2.895 × 10<sup>-3</sup> amongst the three models. These results demonstrate that allowing the empirical parameters A and Ea to be treated as learnable parameters markedly enhances the model's capability to reconcile data fidelity with physical consistency. This <em>highlights the sensitivity of the model to empirical parameter initialisation, where even small deviations from the optimal values enforces incorrect physical behaviour and ultimately lead to performance worse than the baseline NN.</em> This is further discussed in Section 4.2.
+        </p>
+        <p>
+          Statistical significance testing further substantiated these findings. Pairwise comparisons between the PINN-Discovery and both the NN and PINN models yielded p-values below 0.05 across all performance metrics, confirming that the observed predictive performance and physical consistency are statistically significant. This indicates that the enhancements introduced by the PINN-Discovery framework are not a result of random variation, but rather stem from its improved predictive capacity. Table 6 showcases the statistical significance testing results.
+        </p>
+
+        <table-component subtitle="Table 6: Statistical significance across NN, PINN and PINN-Discovery">
+          <div id="table-significance"></div>
+        </table-component>
+        
+      </div>
+      <div id="4.2: Empirical Parameter Performance"> 
+        <h3>4.2: Empirical Parameter Performance</h3>
+        <p>
+          As reported in <a href="#ref16">[16]</a> and the results from Section 4.1, the empirical parameters utilised to calculate the governing equation are extremely sensitive to its initialized values. To investigate the effect of the physics parameter λ for the PINN models, the PINN models were retrained with different values of Ea, namely: 30, 40 and 50 kJ mol<sup>-1</sup>. Only the Ea value was varied, as it exerts a much stronger influence on the calculated rate constant k than the pre-exponential parameter A under Arrhenius kinetics.
+        </p>
+
+        <image-component tag="image" source="assets/Ea.png"
+          subtitle="Figure 8: Notched Boxplot of R² for different values of Ea"></image-component>
+
+        <p>
+          As observed in Figure 8, there is a large range in performance for different values of Ea. At Ea= 30 kJ mol<sup>-1</sup>, both PINN and PINN-Discovery failed to produce meaningful predictions, yielding an average R<sup>2</sup> of -0.569 and -0.361 respectively. When Ea= 30 kJ mol<sup>-1</sup>, the physics loss calculated was 6.753 × 10<sup>-1</sup> and 6.335 × 10<sup>-2</sup> for PINN and PINN-Discovery. It is this extremely large physic loss error made it impossible for the models to converge during training and hence an average R<sup>2</sup> below 0 was obtained. A similar trend was observed for when Ea= 40 kJ mol<sup>-1</sup> for both PINN and PINN-Discovery.
+        </p>
+        <p>
+          On the other hand, only when Ea is 50 kJ mol<sup>-1</sup>, both PINN and PINN-Discovery were able to converge during training, obtaining a mean R<sup>2</sup> of 0.738 and 0.807 respectively. Furthermore, the physics loss obtained is only 2.312 × 10<sup>-2</sup> and 2.895 × 10<sup>-3</sup>. Consequently, these results prove that the performance of PINNs is extremely reliant on correct initialization of its empirical parameters and for this particular case study, the best value of Ea to represent the system is 50 kJ mol<sup>-1</sup>.
+        </p>
+      </div>
+
+      <div id="4.3: Effect of Physics Weight on Model Performance">
+        <h3>4.3: Effect of Physics Weight on Model Performance</h3>
+        <p>
+          The influence of different physics-loss weights, λ was also examined. Both PINN and PINN-Discovery were retrained on the same dataset following the training methodology outlined earlier across four values of λ (0.25, 0.5, 0.7 and 1). Results are detailed in Table 7.
+        </p>
+
+        <table-component subtitle="Table 7: Performance across NN, PINN and PINN-Discovery for different λ value">
+          <div id="table-lambda"></div>
+        </table-component>
+
+        <p>
+          PINN showed a monotonic decrease in R² and physic loss. As λ increased from 0.25 to 1, R² decreased consistently from 0.770 to 0.738 (4.2% decrease). The improvement in reduction of physics loss was merely from 3.211 × 10⁻² to 2.312 × 10⁻² (3.0% decrease). Given that PINN holds an inaccurate physical representation, giving more weight to the physics-component will inevitably lower the performance even at lower ranges of λ, which is as expected.
+        </p>
+        <p>
+          On the other hand, PINN-Discovery, R² improved slightly from 0.786 to 0.810 as λ increased from 0.25 to 0.5, representing a 3.05% increase. Meanwhile, the physics loss decreased considerably from 5.665 ×10⁻³ to 3.698 × 10⁻³ (34.72% decrease). However, further increasing λ from 0.75 to 1.0 resulted in a slight R² decrease to 0.807, while physics loss reduced from 3.166 × 10⁻³ to 2.895 × 10⁻³ (8.6% decrease). This suggests that from λ = 0.25 to 0.5, the physics term provides an effective level of regularisation within this range. Beyond this point, however, the larger λ value causes the physics term to dominate and suppresses the NN-component. As a result, the model begins to behave more like a FPM, leading to reduction in performance. These results hence indicate that while choosing an optimal λ can slightly improve PINN-Discovery, its impact is modest and far less critical than the selection of empirical parameters.
+        </p>
+        </div>
+  </div>
       <sl-divider></sl-divider>
-      <h2>References</h2>
-      <ul>
-        <li>
-          Brody, J. E. (2007, December 11). Mental reserves keep brain agile. The New York Times. Retrieved from
-          http://www.dowjones.com/factiva/
-        </li>
-        <li>
-          Chamberlin, J., Novotney, A., Packard, E., & Price, M. (2008, May). Enhancing worker well-being: Occupational
-          health psychologists convene to share their research on work, stress, and health. Monitor on Psychology,
-          39(5), 26-29.
-        </li>
-        <li>
-          Jones, T. J., & Fields, N. (2003). Emotional quotient and personality. E-Journal of Applied Psychology, 2(2),
-          38-45. Retrieved from http://ejournalappliedpsyc/index.php/ejap
-        </li>
-      </ul>
+  <div id="Section 5: Future Works ">
+    <h2>Section 5: Future Works </h2>
+    <div id="5.1: Incorporation of Physics via Neural Network Architecture" >
+      <h3>5.1: Incorporation of Physics via Neural Network Architecture</h3>
+      <p>
+        In this current implementation of PINNs, a soft-constraint approach was utilized, wherein the physics was incorporated as an additional penalty term in the loss function. However, this approach does not ensure exact conservation of physics. As discussed in Section 4.3, there is an inherent trade-off between minimising data loss and physics loss as λ varies.
+      </p>
+      <p>
+        For future implementations, a possible method to overcome the limitations of soft-constraints is via "hard-constraints". Hard-constraints ensure that the model predictions exactly satisfy physical laws at all times. For example, Hao et al. has developed a novel PINN architecture, KKT-hPINN, that satisfies physical constraints through projecting the neural network output orthogonally onto a subspace that satisfies a system of governing equations <a href="#ref24">[24]</a>. However, a key issue with implementing hard-constraints is that there is a substantial increase in complexity and hence computational costs, limiting the scalability of such an approach.
+      </p>
+    </div>
+    
+    <div id="5.2: Assessment of Physics-Informed Machine Learning of a Complex Case Study">
+      <h3>5.2: Assessment of Physics-Informed Machine Learning of a Complex Case Study</h3>
+      <p>
+        Industrial absorption columns are widely used to remove unwanted gas-phase impurities during purification or waste-treatment processes. Their performance is often enhanced by incorporating a reactive solvent that can lower the mass transfer resistance and hence improve absorption of impurities. A common example is the removal of Carbon Dioxide (CO<sub>2</sub>) from a plant's exhaust stream, where the gas is contacted with an aqueous sodium hydroxide (NaOH) solution. As CO<sub>2</sub> is absorbed into the liquid phase, it reacts with NaOH to form Sodium Carbonate (Na<sub>2</sub>CO<sub>3</sub>) as shown below.
+      </p>
+      <div style="text-align: center; margin: 20px 0;">
+        $$CO_2 + 2\,NaOH \rightarrow Na_2CO_3 + H_2O$$
+      </div>
+      <p>
+        The formation of Sodium Carbonate (Na<sub>2</sub>CO<sub>3</sub>) effectively reduces the mass-transfer resistance in the liquid phase, allowing subsequent CO<sub>2</sub> absorption to proceed at an enhanced rate. Figure 9 showcases the absorption tower layout which is segregated primarily into 3 different zones.
+      </p>
+
+      <image-component tag="image" source="assets/combinedtower.png"
+          subtitle="Figure 9: Chemical absorption in packed bed tower with three different zones"></image-component>
+      
+      <p>
+        To build the dataset, LHC sampling will likewise be utilised. Concentration of CO<sub>2</sub> in the inlet waste gas stream, Y<sub>A1</sub>, Concentration of NaOH in the inlet liquid solvent stream, X<sub>B2</sub> and space time are the three input variables to be varied. The output variables are the heights of each zone h<sub>1</sub>, h<sub>2</sub>, h<sub>3</sub>.
+      </p>
+      <p>
+        Findings on the governing equations have been conducted as shown below, which will be utilised as the basis for the development of the PINN model. The details can be found in Appendix B.
+      </p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$h_1 = \frac{G}{k^0_{ya} a P_T (1-\frac{mG}{L})} ln \left[ (1 - \frac{mG}{L})(\frac{Y_{A1}}{Y_{A2}}) + \frac{mG}{L} \right]$$
+      </div>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$h_2 = \frac{G}{k^0_{ya} a P_T} \frac{Y_{A2}}{aY_T + β} = \frac{G}{k^0_{ya} a P_T aY} ln \frac{aY_{A2} + β}{aY_{A3} + β}$$
+      </div>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$h_3 = \frac{G}{k^0_{ya} a P_T} ln \frac{Y_{A3}}{Y_{A4}}$$
+      </div>
+      
+      <p>
+        where
+      </p>
+      <p>
+        a: interfacial mass transfer area per volume of packing (m<sup>-1</sup>), m: Henry's law constant of CO<sub>2</sub> ,
+      </p>
+      <p>
+        P<sub>T</sub>: Total pressure (Pa), Standard deviation, k<sup>0</sup><sub>ya</sub>: Overall gas phase mass transfer coefficient without chemical reaction (mol/m<sup>3</sup> s Pa), k<sub>g,a</sub>: Gas film mass transfer coefficient of CO<sub>2</sub>
+      </p>
+      <p>
+        (mol/m<sup>2</sup> s Pa), α and β: Constants to be found as detailed in Appendix B
+      </p>
+    </div>
+  </div>
+  <sl-divider></sl-divider>
+  <div id="Section 6: Conclusion ">
+    <h2>Section 6: Conclusion </h2>
+    <p>In conclusion, this study integrates physical constraints into neural network training via the loss function and compares the performance of NNs, PINN and PINN-discovery using R², MSE and physics loss. Statistical significance testing at the 95% confidence level validates that the observed performance differences are meaningful. The analysis also highlights the influence of empirical parameters and physics loss weight, λ. Future works will extend to more complex chemical-engineering systems and hard-constraint formulations.
+    </p>
+  </div>
+  
+   <sl-divider></sl-divider>
+  <div id="references" class="references">
+    <h2>References</h2>
+    <ol>
+      <li id="ref1">
+        Z. Wu, H. Wang, C. He, B. Zhang, T. Xu, and Q. Chen, "The Application of Physics-Informed Machine Learning in Multiphysics Modeling in Chemical Engineering," <em>Ind. Eng. Chem. Res.</em>, vol. 62, no. 44, pp. 18178–18204, Oct. 2023.
+      </li>
+      <li id="ref2">
+        A. Mitsos et al., "Challenges in process optimization for new feedstocks and energy sources," <em>Comput. Chem. Eng.</em>, vol. 113, pp. 209–221, May 2018.
+      </li>
+      <li id="ref3">
+        M. R. Dobbelaere, P. P. Plehiers, R. Van de Vijver, C. V. Stevens, and K. M. Van Geem, "Machine Learning in Chemical Engineering: Strengths, Weaknesses, Opportunities, and Threats," <em>Engineering</em>, vol. 7, no. 9, Jul. 2021.
+      </li>
+      <li id="ref4">
+        S. C. B. Selvamony, "Kinetics and Product Selectivity (Yield) of Second Order Competitive Consecutive Reactions in Fed-Batch Reactor and Plug Flow Reactor," <em>ISRN Chem. Eng.</em>, vol. 2013, pp. 1–17, Sep. 2013.
+      </li>
+      <li id="ref5">
+        G. G. Stokes, "On the Steady Motion of Incompressible Fluids," <em>Mathematical and Physical Papers</em> vol. 1, pp. 1–16, 2025.
+      </li>
+      <li id="ref6">
+        A. M. Schweidtmann et al., "Machine Learning in Chemical Engineering: A Perspective," <em>Chemie Ingenieur Technik</em>, vol. 93, no. 12, pp. 2029–2039, Oct. 2021.
+      </li>
+      <li id="ref7">
+        F. Bisotti, M. Fedeli, K. Prifti, A. Galeazzi, A. Dell'Angelo, and F. Manenti, "Impact of Kinetic Models on Methanol Synthesis Reactor Predictions: In Silico Assessment and Comparison with Industrial Data," <em>Ind. Eng. Chem. Res.</em>, vol. 61, no. 5, pp. 2206–2226, Jan. 2022.
+      </li>
+      <li id="ref8">
+        J. R. Grace and F. Taghipour, "Verification and validation of CFD models and dynamic similarity for fluidized beds," <em>Powder Technol.</em>, vol. 139, no. 2, pp. 99–110, Jan. 2004.
+      </li>
+      <li id="ref9">
+        A. Thebelt, J. Wiebe, J. Kronqvist, C. Tsay, and R. Misener, "Maximizing information from chemical engineering data sets: Applications to machine learning," <em>Chem. Eng. Sci.</em>, vol. 252, p. 117469, Apr. 2022.
+      </li>
+      <li id="ref10">
+        Z. Chen, Y. Liu, and H. Sun, "Physics-informed learning of governing equations from scarce data," <em>Nat. Commun.</em>, vol. 12, no. 1, Oct. 2021.
+      </li>
+      <li id="ref11">
+        R. Wang and R. Yu, "Physics-Guided Deep Learning for Dynamical Systems: A Survey," arXiv:2107.01272, 2021.
+      </li>
+      <li id="ref12">
+        S. Cuomo, V. S. Di Cola, F. Giampaolo, G. Rozza, M. Raissi, and F. Piccialli, "Scientific Machine Learning Through Physics–Informed Neural Networks: Where we are and What's Next," <em>J. Sci. Comput.</em>, vol. 92, no. 3, Jul. 2022.
+      </li>
+      <li id="ref13">
+        Z. Jiang et al., "Physics-informed machine learning for building performance simulation-A review of a nascent field," <em>Adv. Appl. Energy</em>, pp. 100223–100223, May 2025.
+      </li>
+      <li id="ref14">
+        R. J. Murphy, O. J. Maclaren, and M. J. Simpson, "Implementing measurement error models with mechanistic mathematical models in a likelihood-based framework for estimation, identifiability analysis and prediction in the life sciences," <em>J. R. Soc. Interface</em>, vol. 21, no. 210, Jan. 2024.
+      </li>
+      <li id="ref15">
+        W. Zhang et al., "Physics-informed neural networks (PINNs) as intelligent computing technique for solving partial differential equations: Limitation and future prospects," <em>Sci. China Phys. Mech. Astron.</em>, vol. 69, no. 1, Sep. 2025.
+      </li>
+      <li id="ref16">
+        A. Krishnapriyan, A. Gholami, S. Zhe, R. Kirby, and M. Mahoney, "Characterizing possible failure modes in neural-network-driven simulations," in <em>Proc. NeurIPS</em>, 2021.
+      </li>
+      <li id="ref17">
+        C. Song and R. Kawai, "Monte Carlo and variance reduction methods for structural reliability analysis: A comprehensive review," <em>Probab. Eng. Mech.</em>, vol. 73, pp. 103479–103479, Jul. 2023.
+      </li>
+      <li id="ref18">
+        R. David and J. Villermaux, "Comments on 'A Mixing Model for a Continuous Flow Stirred Tank Reactor,'" <em>Ind. Eng. Chem. Fundam.</em>, vol. 19, no. 3, pp. 326–327, Aug. 1980.
+      </li>
+      <li id="ref19">
+        L. F. Brown and B. A. Robinson, "Using temperature-programmed reaction for kinetics analysis of liquid-phase reactions," <em>Chem. Eng. Sci.</em>, vol. 41, no. 4, pp. 963–970, 1986.
+      </li>
+      <li id="ref20">
+        M. I. Ortiz, A. Romero, and A. Irabien, "Integral kinetic analysis from temperature programmed reaction data: alkaline hydrolysis of ethyl acetate as test reaction," <em>Thermochim. Acta</em>, vol. 141, pp. 169–180, Mar. 1989.
+      </li>
+      <li id="ref21">
+        A. Paszke et al., "PyTorch: An Imperative Style, High-Performance Deep Learning Library," in <em>Proc. NeurIPS</em>, 2019.
+      </li>
+      <li id="ref22">
+        G. Casella and R. L. Berger, <em>Statistical Inference</em>. Belmont, CA: Brooks/Cole Cengage Learning, 2017.
+      </li>
+      <li id="ref23">
+        D. C. Montgomery and G. C. Runger, <em>Applied Statistics and Probability for Engineers</em>. Hoboken, NJ: Wiley, 2011.
+      </li>
+      <li id="ref24">
+        H. Chen, G. E. C. Flores, and C. Li, "Physics-informed neural networks with hard linear equality constraints," <em>Comput. Chem. Eng.</em>, vol. 189, p. 108764, Oct. 2024.
+      </li>
+    </ol>
+  </div>
+  
+   <sl-divider></sl-divider>
+  <div id="Appendix">
+    <h2>Appendix</h2>
+    <div id="Appendix A: Experimental Procedure">
+      <h3>Appendix A:</h3>
+      <p>
+        <strong>Factors that can affect yield:</strong> Temperature of PFR, concentration of NaOH, concentration of EtAc and space time in a 200ml PFR.
+      </p>
+      <ol>
+        <li>Prepare 10L of 0.05M NaOH solution and 10L 0.05M EtAc solution, and pour them into their respective feed tanks.</li>
+        <li>Switch on power supply to the unit.</li>
+        <li>Ensure that there is enough water present in the water tank circulation system.</li>
+        <li>Set temperature at degree celsius according to the data sheet and activate the circulation system to allow the water jacket to reach the set temperature</li>
+        <li>Set flow rate of NaOH and flow rate of EtA to be its respective flow rates as shown in the data sheet.</li>
+        <li>Activate the pumps to kick start the reaction.</li>
+        <li>When 3 consecutive conductivity readings taken at 30 secs intervals are consistent, this indicates that bubbles are no longer present in the plug flow reactor and samples can be taken. <em>(This will take approximately an hour for the initial set up and subsequently 20 mins per run)</em></li>
+        <li>Collect 7ml of product and immediately quench this with 0.1M of 5ml HCl prepared earlier and add 8ml of deionised water. Repeat this 3 times.</li>
+        <li>Bring the beakers of mixture to the Autotitrator to titrate. The Autotitrator titrator will indicate the volume of 0.107M of NaOH used to titrate the excess HCl. (refer to the calculations below and record the amount of product CH3COONa formed)</li>
+        <li>Vary the flow rate of NaOH and EtAc, and temperature of the set up.</li>
+      </ol>
+      
+      <p><strong>To calculate the number of NaOH that was unreacted</strong></p>
+      
+      <p><em>Number of moles of HCl used for quenching</em> = 5ml × <sup>0.108</sup>/<sub>1000</sub> = 0.00054</p>
+      
+      <p><em>Number of moles of NaOH maximum</em> = 7ml × <sup>0.05</sup>/<sub>1000</sub> = 0.00035</p>
+      
+      <p><em>Volume of NaOH titrant used</em> = X ml</p>
+      
+      <p><em>Number of moles of NaOH titrant used</em> = X × <sup>0.107</sup>/<sub>1000</sub> = <em>Number of moles of HCl titrated. Y</em></p>
+      
+      <p><em>Number of moles of HCl reacted</em> = 0.00054 - Y = <em>Number of moles of NaOH unreacted. Z (7ml)</em></p>
+      
+      <p><em>Number of moles of NaOH unreacted per ml</em> = Z / 7 (mol/ml) = P</p>
+      
+      <p><strong>To calculate the total NaOH reactant</strong></p>
+      
+      <p><em>Total NaOH reactant fed per second</em> = (Fx)<sub>A</sub>(mol/s)</p>
+      
+      <p><em>In 1 second, (F<sub>A</sub> + F<sub>B</sub>) ml is obtained</em></p>
+      
+      <p><em>Total NaOH reactant fed per ml</em> = <sup>(Fx)<sub>A</sub></sup>/<sub>(F<sub>A</sub> + F<sub>B</sub>)</sub> (mol/ml) = Q</p>
+      
+      <p><em>Conversion</em> = <sup>Number of moles of NaOH reacted</sup>/<sub>Total NaOH reactant fed</sub></p>
+      
+      <p>= <sup>Q - P</sup>/<sub>Q</sub></p>
+      
+      <p><em>Selectivity</em> = 1 (no side reactions)</p>
+      <p><em>Yield</em> = <em>Conversion</em> × <em>Selectivity</em></p>
+      
+      <h4>Appendix B:</h4>
+      <h5>Surface Reaction Zone</h5>
+      
+      <p>In this segment X<sub>B3</sub> or C<sub>B3</sub> > 0 and p<sub>A</sub> or Y<sub>A</sub> = 0</p>
+      
+      <p>Mass transfer rate:</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$-r_A = k_{ga}(p_A - p_{Ai}) = k_{gA} P_{inert}(Y_A - Y_{Ai}) = k_{gA} p_A = k_{gA} P_{inert} Y_A = \frac{k_L P_T}{1 + Y_T}$$
+      </div>
+      
+      <p>Using the plug flow design equation:</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$h = \frac{G}{k_L} \int \frac{(1 + Y_T) dY_A}{Y_A} = \frac{G}{k_{ya} a P_T} [ln \frac{Y_{A1}}{Y_{A4}} + (Y_{A3} - Y_{A4})]$$
+      </div>
+      
+      <p>For a dilute solution, where Y<sub>T</sub> <<1, hence</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$h_3 = \frac{G}{k_{ya} a P_T} ln \frac{Y_{A3}}{Y_{A4}}$$
+      </div>
+      
+      <h5>Interior Reaction Zone</h5>
+      
+      <p>The end of the surface reaction zone and the beginning of the interior reaction zone occur when the concentration of both the reactants are zero at the interface, where C<sub>Ai</sub> = Y<sub>Ai</sub> = C<sub>Bi</sub> = X<sub>Bi</sub> = 0</p>
+      
+      <p>To calculate X<sub>B3</sub>:</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$k_{ga}(p_A - p_{Ai}) = k_{gA} P_T Y_{A3} = \frac{k_L (C_{BO} - C_{Bi})}{δ} = \frac{k_L C_B X_{Bi}}{δ}$$
+      </div>
+      
+      <p>From k<sup>0</sup><sub>La</sub> = <sup>D_L</sup>/<sub>δ</sub> and k<sub>LB</sub> = <sup>D_B</sup>/<sub>δ</sub></p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$k_{gA} P_T Y_{A3} = \frac{C_B D_B X_{Bi}}{D_B δ} = \frac{k_L C_B X_{Bi}}{D_B}$$
+      </div>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$X_{BC} = \frac{k_L D_B δY_{Bi}}{k_L C_B D_B}$$
+      </div>
+      
+      <p>Material balance over entire surface reaction zone</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$G(Y_{A3} - Y_{A4}) = \frac{L(X_{B4} - X_{B3})}{2Q}$$
+      </div>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$Y_{A3} = Y_{A4} + \frac{L}{2Q}(X_{B4} - X_{B3})$$
+      </div>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$X_{B3} = \frac{k_L D_B P_T}{k_L C_B D_A} [Y_{A4} + \frac{L}{2Q}(X_{B4} - Y_{B3})]$$
+      </div>
+      
+      <p>Let β<sub>1</sub> = <sup>k_L D_B P_T</sup>/<sub>αC_B D_A k_L</sub> and β<sub>2</sub> = <sup>k_L D_B P_T</sup>/<sub>C_B D_A k_L</sub></p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$X_{B3} = \frac{β_1 Y_{A4} + β_2 Y_T}{1 + β_1}$$
+      </div>
+      
+      <p>Mass transfer of CO<sub>2</sub> from gas bulk to interface: -r<sub>A</sub> = k<sub>gA</sub>(P<sub>A</sub> - P<sub>Ai</sub>)</p>
+      
+      <p>Mass transfer of CO<sub>2</sub> from interface to reaction plane: -r<sub>A</sub> = <sup>D<sub>A</sub>(C<sub>Ai</sub> - 0)</sup>/<sub>δ<sub>B</sub></sub></p>
+      
+      <p>Mass transfer of NaOH from liquid bulk to reaction plane: -r<sub>B</sub> = <sup>D<sub>B</sub>(C<sub>B</sub> - 0)</sup>/<sub>δ<sub>B</sub></sub></p>
+      
+      <p>At steady state,</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$\frac{-r_A}{2} = \frac{-r_B}{1} = k_{gA}(P_A - P_{Ai}) = \frac{D_A C_{Ai}}{δ_A} = \frac{D_B C_B}{δ_B}$$
+      </div>
+      
+      <p>-r<sub>A</sub>x<sub>1</sub> = D<sub>A</sub> C<sub>Ai</sub> and -r<sub>A</sub>x<sub>2</sub> = <sup>D_B C_B</sup>/<sub>2</sub></p>
+      
+      <p>-r<sub>A</sub>(x<sub>1</sub> + x<sub>2</sub>) = -r<sub>A</sub>δ = D<sub>A</sub> C<sub>Ai</sub> + <sup>D_B C_B</sup>/<sub>2</sub></p>
+      
+      <p>For a dilute solution, Henry's law is applied p<sub>Ai</sub> = HC<sub>Ai</sub>.</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$-r_A δ = \frac{D_A p_{Ai}}{H} + \frac{D_B C_B}{2}$$
+      </div>
+      
+      <p>since p<sub>A</sub> = <sup>-r_A</sup>/<sub>k_{gA}</sub></p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$-r_A [1 + \frac{D_A}{H k_{gA} δ}] = \frac{D_A p_A}{H δ} + \frac{D_B C_B}{2δ}$$
+      </div>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$-r_A = [\frac{D_A}{H k_{gA} δ} + 1]^{-1} [\frac{D_A p_A}{H δ} + \frac{D_B C_B}{2δ}]$$
+      </div>
+      
+      <p>By dividing the numerator and denominator by <sup>1</sup>/<sub>D_A H k_{gA}</sub>, we have</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$-r_A = \frac{D_A (\frac{1}{k_{gA}} + \frac{D_B H C_B}{2 D_A k_{gA} p_A})}{\frac{H δ}{k_{gA}} + 1}$$
+      </div>
+      
+      <p>Given that for a dilute solution, p<sub>A</sub> =P<sub>T</sub>Y<sub>A</sub> and C<sub>B</sub> = C<sub>L</sub>X<sub>B</sub></p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$-r_A = \frac{p_A Y_A + \frac{D_B H C_L X_B}{D_A P_T}}{\frac{H δ}{k_{gA}} + 1} k^0_{ga}[p_A Y_A + \frac{D_B H C_L X_B}{D_A P_T}] \text{, where } \frac{1}{k^0_{ga}} = \frac{1}{k_{gA}} + \frac{H}{k_L} + \frac{1}{k_{LA}} + \frac{mP_T}{k_L C_L}$$
+      </div>
+      
+      <p>Using Henry's Law,</p>
+      <p>Since p<sub>Ai</sub> = H C<sub>Ai</sub> or Y<sub>Ai</sub> = H C<sub>L</sub> X<sub>Ai</sub></p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$Y_{Ai} = \frac{H C_L X_B}{p_T} = mX_{Ai}$$
+      </div>
+      
+      <p>Using the plug flow design equation</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$h_2 = \frac{G}{a} \int \frac{dY_A}{-r_A/v} = \frac{G}{k^0_{ya} a P_T} \int \frac{dY_A}{Y_A (1 + \frac{D_B mC_L}{D_A Y_A})}$$
+      </div>
+      
+      <p>X<sub>B</sub> is determined by material balance,</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$X_B = X_{B3} - \frac{2G}{L}(Y_A - Y_{A3})$$
+      </div>
+      
+      <p>Substituting X<sub>B</sub> into the equation above,</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$h_2 = \frac{G}{k^0_{ya} a P_T} \int \frac{dY_A}{aY_T + β} = \frac{G}{k^0_{ya} a P_T a} ln[\frac{aY_{A2} + β}{aY_{A3} + β}]$$
+      </div>
+      
+      <p>where α = 1 - <sup>D_B mG</sup>/<sub>D_A L</sub> and β = <sup>D_B mC_L</sup>/<sub>D_A</sub> + <sup>D_B mGY_{A3}}{D_A L</sub></p>
+      
+      <p>Y<sub>A2</sub> is obtained similarly by material balance</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$Y_{A2} = Y_{A3} + \frac{L}{2G} X_{B4}$$
+      </div>
+      
+      <h5>Physical-reaction Zone</h5>
+      
+      <p>For dilute solution,</p>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        $$h_1 = \frac{G}{k^0_{ya} a P_T (1-\frac{mG}{L})} ln \left[ (1 - \frac{mG}{L})(\frac{Y_{A1}}{Y_{A2}}) + \frac{mG}{L} \right]$$
+      </div>
+      
+      <p>where <sup>1</sup>/<sub>k^0_{ya}</sub> = <sup>1</sup>/<sub>k_{gA}</sub> + <sup>1</sup>/<sub>k_L aC_L</sub> and m = <sup>Y_A</sup>/<sub>X_B</sub> = <sup>H_A C_L</sup>/<sub>p_T</sub></p>
     </div>
   </div>
 
@@ -225,8 +847,6 @@
     <sl-icon name="arrow-up" label="Settings"></sl-icon>
   </sl-button>
 
-  <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-  <script type="module" src="./components/table-component/table-component.js"></script>
 </body>
 
 </html>
